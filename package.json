@@ -1,0 +1,28 @@
+{
+  "name": "slush-performance",
+  "version": "0.1.4",
+  "description": "",
+  "main": "slushfile.js",
+  "author": "Matheus Neves",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/matheus-neves/slush-performance"
+  },
+  "keywords": [
+    "slushgenerator",
+    "performance",
+    "stylus",
+    "rupture"
+  ],
+  "dependencies": {
+    "slush": ">=1.0.0",
+    "gulp": "~3.5.6",
+    "gulp-template": "~0.1.1",
+    "gulp-install": "~0.1.1",
+    "gulp-conflict": "~0.1.1",
+    "gulp-rename": "~1.2.0",
+    "underscore.string": "~2.3.3",
+    "inquirer": "~0.4.1"
+  },
+  "license": "MIT"
+}

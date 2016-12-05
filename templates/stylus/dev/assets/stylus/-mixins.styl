@@ -1,0 +1,21 @@
+alignCenter()
+  position absolute
+  bottom 50%
+  left 50%
+  transform translate(-50%, -50%)
+  
+fontDefault(styl = normal, weigth = normal, size = 16px, lh = 1.2, family = 'arial')
+  font: styl weigth size/lh family
+
+font(styl = normal, weigth = normal, size = 16px, lh = 1.2, type = '400')
+  font: styl weigth size/lh type+'lorem'
+  
+placeholder()
+	&::-webkit-input-placeholder
+		{block}
+	&:-moz-placeholder
+		{block}
+	&::-moz-placeholder
+		{block}
+	&:-ms-input-placeholder
+		{block}
