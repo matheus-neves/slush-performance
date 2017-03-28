@@ -1,11 +1,11 @@
-v0.1.1:
+v1.1.0:
   date: 2017-03-28
   changes:
     - Adding CHANGELOG.
     - Going to use ES2015/browserify
     - Update Templates for ES2015
 
-v0.1.0:
+v1.0.0:
   date: 2016-12-05
   changes:
     - Initial release.
