@@ -1,6 +1,6 @@
 /*
  * slush-simple-gulp
- * https://github.com/matheus-neves/slush-performance
+ * https://github.com/matheus-neves/slush-cms
  *
  * Copyright (c) 2016, Matheus Neves
  * Licensed under the MIT license.
@@ -42,11 +42,10 @@ var defaults = (function () {
     }
 
     return {
-        appName: workingDirName,
-        userName: osUserName || format(user.name || ''),
-        authorName: user.name || '',
-        authorEmail: user.email || ''
+      appName: workingDirName
     };
+
+
 })();
 
 gulp.task('default', function (done) {
@@ -78,19 +77,20 @@ gulp.task('default', function (done) {
         message: 'What is the project repository?',
         default: defaults.appRepository
     }, {
-    	  type: 'list',
-    	  name: 'template',
-    	  message: 'Choose your Favorite Template',
-    	  choices: [
-          { name: 'stylusES6', value: 'stylus-es6'},
-          { name: 'stylusES6 with Class', value: 'stylus-es6-withclass'}
-    	  ],
+          type: 'list',
+          name: 'template',
+          message: 'Choose your Favorite Template',
+          choices: [
+          { name: 'Webpack + Stylus', value: 'webpack-stylus'},
+          { name: 'Webpack + vue + stylus', value: 'webpack-vue-stylus'}
+          ],
         default: 0
     }, {
         type: 'confirm',
         name: 'moveon',
         message: 'Continue?'
     }];
+
     //Ask
     inquirer.prompt(prompts,
         function (answers) {
@@ -98,6 +98,7 @@ gulp.task('default', function (done) {
                 return done();
             }
             answers.appNameSlug = _.slugify(answers.appName);
+                console.log(__dirname + '/templates/' + answers.template);
             gulp.src(__dirname + '/templates/' + answers.template + '/**')
                 .pipe(template(answers))
                 .pipe(rename(function(file) {

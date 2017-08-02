@@ -1,0 +1,66 @@
+{
+  "name": "<%= appName %>",
+  "version": "<%= appVersion %>",
+  "description": "<%= appDescription %>",
+  "homepage": "<%= appRepository %>",
+  "main": "webpack.config.js",
+  "scripts": {
+    "clean": "rimraf build",
+    "start": "http-server build -o",
+    "dev": "cross-env NODE_ENV=dev webpack-dev-server --open",
+    "build": "npm run clean && cross-env NODE_ENV=prod webpack && npm run start"
+  },
+  "author": {
+    "name": "<%= authorName %>",
+    "email": "<%= authorEmail %>"
+  },
+  "repository": {
+    "type": "git",
+    "url": "<%= appRepository %>"
+  },
+  "bugs": {
+    "url": "<%=appRepository%>/issues"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "1.11.0",
+    "slick-carousel": "^1.6.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "compression-webpack-plugin": "^0.4.0",
+    "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "^2.0.0-rc.3",
+    "file-loader": "^0.11.2",
+    "html-loader": "^0.4.5",
+    "html-webpack-plugin": "^2.28.0",
+    "html-webpack-plugin-remove": "0.0.3",
+    "http-server": "^0.9.0",
+    "image-webpack-loader": "^3.3.1",
+    "jeet": "6.1.2",
+    "kouto-swiss": "^0.12.0",
+    "nib": "^1.1.2",
+    "purify-css": "^1.2.5",
+    "purifycss-webpack": "^0.7.0",
+    "rimraf": "^2.6.1",
+    "rupture": "^0.6.1",
+    "style-ext-html-webpack-plugin": "^3.4.1",
+    "style-loader": "^0.13.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "svg-spritemap-webpack-plugin": "^1.0.2",
+    "uglifyjs-webpack-plugin": "^0.4.6",
+    "url-loader": "^0.5.9",
+    "webpack": "^2.6.1",
+    "webpack-dev-middleware": "^1.10.0",
+    "webpack-dev-server": "^2.3.0",
+    "webpack-spritesmith": "^0.3.3"
+  }
+}
