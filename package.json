@@ -10,10 +10,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/matneves/slush-my-slush-generator.git"
-  },
-  "repository": {
-    "type": "git",
     "url": "git://github.com/matheus-neves/slush-performance"
   },
   "bugs": {

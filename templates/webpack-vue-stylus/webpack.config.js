@@ -22,7 +22,7 @@ const
     html        : path.resolve(__dirname, 'dev', 'index.html'),
     js          : path.resolve(__dirname, 'dev', 'assets/js/main.js'),
     styl        : path.resolve(__dirname, 'dev', 'assets/stylus/style.styl'),
-    priorityCSS : path.resolve(__dirname, 'dev', 'assets/stylus/priority/priority.styl'),
+    priorityCSS : path.resolve(__dirname, 'dev', 'assets/stylus/priority.styl'),
     bundleCSS   : 'assets/css/',
     bundleJS    : 'assets/js/'
   },
@@ -58,9 +58,12 @@ const config = {
     contentBase: path.resolve(__dirname, 'dev'),
     publicPath: '/',
     hot: false,
-    port: 3000
+    port: 3000,
+    historyApiFallback: true
   },
-
+  performance: {
+    hints: false
+  },
   plugins: [
 
     new SVGSpritemapPlugin({
@@ -217,7 +220,8 @@ const config = {
     extensions: [".js", ".json", ".styl", ".vue"],
     modules: ["node_modules", "images"],
     alias: {
-      'vue': 'vue/dist/vue.common.js'
+      'vue': 'vue/dist/vue.common.js',
+      'vue$': 'vue/dist/vue.esm.js'
     }
   }
 

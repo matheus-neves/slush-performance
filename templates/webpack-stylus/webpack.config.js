@@ -22,9 +22,26 @@ const
     html        : path.resolve(__dirname, 'dev', 'index.html'),
     js          : path.resolve(__dirname, 'dev', 'assets/js/main.js'),
     styl        : path.resolve(__dirname, 'dev', 'assets/stylus/style.styl'),
-    priorityCSS : path.resolve(__dirname, 'dev', 'assets/stylus/priority/priority.styl'),
+    priorityCSS : path.resolve(__dirname, 'dev', 'assets/stylus/priority.styl'),
     bundleCSS   : 'assets/css/',
     bundleJS    : 'assets/js/'
+  },
+
+  extractConfig = {
+    use: [
+      {
+        loader: 'css-loader',
+        options: { minimize: (PROD ? true : false) }
+      },
+      {
+        loader: 'stylus-loader',
+        options: {
+          use: [jeet(), rupture(), kswiss(), nib()],
+        }
+      },
+    ],
+    fallback: 'style-loader',
+    publicPath: '../../'
   },
 
   extractStyle    = new ExtractTextPlugin({
@@ -101,7 +118,10 @@ const config = {
 
       {
         test: /\.(html)$/,
-        loader: 'html-loader'
+        loader: 'html-loader',
+        options: {
+          attrs: ['img:src', 'source:srcset']
+        }
       },
 
       {
@@ -124,43 +144,13 @@ const config = {
 
       {
         test: /style\.styl$/,
-        loader: extractStyle.extract({
-          use: [
-            {
-              loader: 'css-loader',
-              options: { minimize: (PROD ? true : false) }
-            },
-            {
-              loader: 'stylus-loader',
-              options: {
-                use: [jeet(), rupture(), kswiss(), nib()],
-              }
-            },
-          ],
-          fallback: 'style-loader',
-          publicPath: '../../'
-        }),
+        loader: extractStyle.extract(extractConfig),
 
       },
 
       {
         test: /priority\.styl$/,
-        loader: extractPriority.extract({
-          use: [
-            {
-              loader: 'css-loader',
-              options: { minimize: (PROD ? true : false) }
-            },
-            {
-              loader: 'stylus-loader',
-              options: {
-                use: [jeet(), rupture(), kswiss(), nib()]
-              }
-            },
-          ],
-          fallback: 'style-loader',
-          publicPath: '../../'
-        }),
+        loader: extractPriority.extract(extractConfig),
       },
 
 
@@ -197,7 +187,7 @@ const config = {
             loader: 'image-webpack-loader',
             query: {
               mozjpeg: {
-                quality: 80
+                quality: 90
               }
             }
           }
@@ -225,7 +215,13 @@ if(PROD) {
       position: 'head-top'
     }),
 
-    new PurifyCSSPlugin({paths: [paths.html],minimize: true}),
+    new PurifyCSSPlugin({
+      paths: [paths.html],
+      minimize: true,
+      purifyOptions: {
+        whitelist: ['*slick*']
+      }
+    }),
     new UglifyJSPlugin(),
 
     new HtmlPluginRemove(/<link href="assets\/css\/priority\.css" rel="stylesheet">/),

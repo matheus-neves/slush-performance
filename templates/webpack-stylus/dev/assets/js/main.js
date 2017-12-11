@@ -1,37 +1,32 @@
-//import $ from 'jquery';
-let $ = document.querySelector.bind(document);
+import $ from 'jquery';
+// let $ = document.querySelector.bind(document);
 
 export default (() => {
 
-let APP = {
+  let APP = {
 
-  cache: {
-    ttl: $('.header__ttl')
-  },
+    cache: {
 
-  bind: () => {
-    APP.funcs.helloWorld();
-  },
+    },
 
-  funcs: {
+    plugins: () => {
 
-    helloWorld: () => {
-      APP.cache.ttl.textContent = 'Performance is Usability, Performance is UX';
+    },
+
+    funcs: {
+
+
+    },
+
+    bind: () => {
+
+    },
+
+    init: () => {
+      APP.bind();
     }
+  };
 
-  },
-
-  plugins: () => {
-
-  },
-
-  init: () => {
-    APP.plugins();
-    APP.funcs;
-    APP.bind();
-  }
-};
-
-APP.init();
+  APP.init();
 
 })();
