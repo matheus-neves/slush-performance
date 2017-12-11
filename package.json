@@ -1,6 +1,6 @@
 {
   "name": "slush-performance",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Performance is Usability, Performance is UX!",
   "homepage": "https://github.com/matheus-neves/slush-performance",
   "main": "slushfile.js",
