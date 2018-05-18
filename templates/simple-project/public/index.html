@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+
+    <!-- <link rel='preload' href='/src/fonts/font.woff' as='font' type='font/woff' crossorigin="anonymous"> -->
+
+    <!-- Polyfill for preload -->
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+      !function (a) { "use strict"; var b = function (b, c, d) { function e(a) { return h.body ? a() : void setTimeout(function () { e(a) }) } function f() { i.addEventListener && i.removeEventListener("load", f), i.media = d || "all" } var g, h = a.document, i = h.createElement("link"); if (c) g = c; else { var j = (h.body || h.getElementsByTagName("head")[0]).childNodes; g = j[j.length - 1] } var k = h.styleSheets; i.rel = "stylesheet", i.href = b, i.media = "only x", e(function () { g.parentNode.insertBefore(i, c ? g : g.nextSibling) }); var l = function (a) { for (var b = i.href, c = k.length; c--;)if (k[c].href === b) return a(); setTimeout(function () { l(a) }) }; return i.addEventListener && i.addEventListener("load", f), i.onloadcssdefined = l, l(f), i }; "undefined" != typeof exports ? exports.loadCSS = b : a.loadCSS = b }("undefined" != typeof global ? global : this);
+      /*! loadCSS rel=preload polyfill. [c]2017 Filament Group, Inc. MIT License */
+      !function (a) { if (a.loadCSS) { var b = loadCSS.relpreload = {}; if (b.support = function () { try { return a.document.createElement("link").relList.supports("preload") } catch (b) { return !1 } }, b.poly = function () { for (var b = a.document.getElementsByTagName("link"), c = 0; c < b.length; c++) { var d = b[c]; "preload" === d.rel && "style" === d.getAttribute("as") && (a.loadCSS(d.href, d, d.getAttribute("media")), d.rel = null) } }, !b.support()) { b.poly(); var c = a.setInterval(b.poly, 300); a.addEventListener && a.addEventListener("load", function () { b.poly(), a.clearInterval(c) }), a.attachEvent && a.attachEvent("onload", function () { a.clearInterval(c) }) } } }(this);
+    </script>
+    <!-- Polyfill for preload -->
+
+    <!-- <link rel="preload" href="/src/css/style.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/src/css/style.css"></noscript> -->
+
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+    <link rel="favicon" href="%PUBLIC_URL%/favicon.ico" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>New Project</title>
+  </head>
+  <body>
+    
+    <header class="wrap">
+      <h1>Performance is Usability, Performance is UX</h1>
+      
+    </header>
+
+    <aside class="wrap">
+      <h2>Useful Links</h2>
+      <ul>
+        <li><a href="https://developers.google.com/speed/pagespeed/insights" target="_blank" rel="noopener">PageSpeed Insights</a></li>
+        <li><a href="https://developers.google.com/web/tools/lighthouse" target="_blank" rel="noopener">Lighthouse</a></li>
+      </ul>
+      <img src="../src/images/svg/page-speed-interface-symbol.svg" alt="logo">
+    </aside>
+  </body>
+</html>
